@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VERTEX — AI 3D 建模選圖平台</title>
+  <meta name="description" content="探索由 AI 生成的高品質 3D 遊戲建模藝術圖，免費瀏覽與下載。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Cursor glow effect -->
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <span class="logo-icon">◈</span>
+        <span class="logo-text">VERTEX</span>
+      </a>
+      <div class="nav-links">
+        <a href="#gallery" class="nav-link">精選作品</a>
+        <a href="#about" class="nav-link">關於平台</a>
+        <a href="#stats" class="nav-link">數據</a>
+      </div>
+      <div class="nav-actions">
+        <button class="btn-nav" id="searchToggle">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        </button>
+      </div>
+    </div>
+    <!-- Search bar -->
+    <div class="search-bar" id="searchBar">
+      <input type="text" id="searchInput" placeholder="搜尋 3D 建模作品..." autocomplete="off">
+      <button class="search-close" id="searchClose">✕</button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero" id="hero">
+    <div class="hero-bg">
+      <div class="hero-particles" id="particles"></div>
+      <div class="hero-grid-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        AI-POWERED 3D ART
+      </div>
+      <h1 class="hero-title">
+        <span class="title-line">探索</span>
+        <span class="title-line title-accent">次世代</span>
+        <span class="title-line">3D 建模藝術</span>
+      </h1>
+      <p class="hero-subtitle">由 AI 驅動的高品質遊戲角色建模圖庫，免費瀏覽、精選下載</p>
+      <div class="hero-cta">
+        <a href="#gallery" class="btn-primary">
+          <span>瀏覽作品集</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 17 5-5-5-5"/><path d="m13 17 5-5-5-5"/></svg>
+        </a>
+        <a href="#about" class="btn-ghost">了解更多</a>
+      </div>
+      <div class="hero-stats-mini">
+        <div class="stat-mini">
+          <span class="stat-num" data-target="4">0</span>
+          <span class="stat-label">精選作品</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-mini">
+          <span class="stat-num" data-target="8">0</span>K
+          <span class="stat-label">累計下載</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-mini">
+          <span class="stat-num" data-target="4">0</span>K+
+          <span class="stat-label">解析度</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll-indicator">
+      <div class="scroll-line"></div>
+      <span>SCROLL</span>
+    </div>
+  </header>
+
+  <!-- Gallery Section -->
+  <section class="gallery-section" id="gallery">
+    <div class="section-header">
+      <span class="section-tag">COLLECTION</span>
+      <h2 class="section-title">精選 3D 建模作品</h2>
+      <p class="section-desc">每一件作品都經過 AI 精密渲染，呈現極致的光影細節與角色動態</p>
+    </div>
+
+    <!-- Filter Tags -->
+    <div class="filter-bar">
+      <button class="filter-tag active" data-filter="all">全部</button>
+      <button class="filter-tag" data-filter="character">角色</button>
+      <button class="filter-tag" data-filter="scene">場景</button>
+      <button class="filter-tag" data-filter="group">團體</button>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="gallery-grid" id="galleryGrid">
+      <!-- Cards are injected via JS -->
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about-section" id="about">
+    <div class="about-grid">
+      <div class="about-content">
+        <span class="section-tag">ABOUT</span>
+        <h2 class="section-title">關於 VERTEX</h2>
+        <p class="about-text">
+          VERTEX 是一個專注於 AI 3D 建模藝術的策展平台。我們精選來自頂尖遊戲引擎與 AI 渲染技術所產生的角色建模圖，
+          讓設計師、藝術愛好者和遊戲玩家能輕鬆瀏覽並取得高品質素材。
+        </p>
+        <div class="about-features">
+          <div class="feature-item">
+            <div class="feature-icon">⬡</div>
+            <div>
+              <h4>4K+ 超高解析度</h4>
+              <p>每張圖片皆提供原始高解析度版本</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">◇</div>
+            <div>
+              <h4>AI 精選策展</h4>
+              <p>透過 AI 演算法嚴選最具視覺衝擊力的作品</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">△</div>
+            <div>
+              <h4>免費下載</h4>
+              <p>所有精選作品皆可免費下載使用</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="about-visual">
+        <div class="visual-card">
+          <img src="images/876a45d8183b886a146736c7c11557w5.jpeg" alt="3D Art Preview" loading="lazy">
+          <div class="visual-card-overlay">
+            <span>CLOUD STRIFE</span>
+            <span>MIDGAR RENDER</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats-section" id="stats">
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number" data-target="156">0</div>
+        <div class="stat-title">3D 建模作品</div>
+        <div class="stat-bar"><div class="stat-bar-fill" style="--fill: 78%"></div></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" data-target="8420">0</div>
+        <div class="stat-title">累計下載次數</div>
+        <div class="stat-bar"><div class="stat-bar-fill" style="--fill: 92%"></div></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" data-target="47">0</div>
+        <div class="stat-title">合作藝術家</div>
+        <div class="stat-bar"><div class="stat-bar-fill" style="--fill: 65%"></div></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" data-target="4096">0</div>
+        <div class="stat-title">最高解析度 (px)</div>
+        <div class="stat-bar"><div class="stat-bar-fill" style="--fill: 100%"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="logo-icon">◈</span>
+        <span class="logo-text">VERTEX</span>
+        <p class="footer-tagline">AI-Powered 3D Art Curation</p>
+      </div>
+      <div class="footer-links">
+        <a href="#gallery">精選作品</a>
+        <a href="#about">關於</a>
+        <a href="#stats">數據</a>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 VERTEX. Crafted with AI & Passion.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-backdrop" id="lightboxBackdrop"></div>
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightboxClose">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+      <div class="lightbox-image-wrap">
+        <img src="" alt="" id="lightboxImg" class="lightbox-img">
+      </div>
+      <div class="lightbox-info" id="lightboxInfo">
+        <div class="lightbox-meta">
+          <h3 id="lightboxTitle"></h3>
+          <p id="lightboxDesc"></p>
+          <div class="lightbox-tags" id="lightboxTags"></div>
+        </div>
+        <div class="lightbox-actions">
+          <button class="btn-download" id="lightboxDownload">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span>下載原圖</span>
+          </button>
+          <button class="btn-like" id="lightboxLike">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+            <span id="likeCount">0</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast notification -->
+  <div class="toast" id="toast">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+    <span id="toastMsg">下載已開始！</span>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
